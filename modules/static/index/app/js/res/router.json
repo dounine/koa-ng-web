@@ -1,0 +1,24 @@
+[
+  {
+    "name": "index",
+    "url": "/index",
+    "parent": "",
+    "views": [
+      {
+        "name": "",
+        "templateUrl": "index/app/html/rev/nav-list.html",
+        "controller": "index"
+      },
+      {
+        "name": "article@index",
+        "templateUrl": "index/app/html/rev/nav.html",
+        "controller": "article"
+      },
+      {
+        "name": "funs@index",
+        "templateUrl": "index/app/html/rev/list.html",
+        "controller": "funs"
+      }
+    ]
+  }
+]

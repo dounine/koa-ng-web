@@ -1,0 +1,27 @@
+li{
+    list-style: none;
+}
+div{
+    &.nav{
+        background: #001f3f;
+        width:10%;
+        height: 100%;
+        float: left;
+        li{
+            border-bottom: 1px solid white;
+        }
+    }
+    &.funs{
+        background: #2aabd2;
+        width:90%;
+        height: 100%;
+        float: left;
+        li{
+            width:100px;
+            height: 100px;
+            float: left;
+            background: #01ff70;
+            margin: 4px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "name": "index.fun-user",
+    "url": "/fun/user",
+    "parent": "/index",
+    "views": [
+      {
+        "name": "funs@index",
+        "templateUrl": "/module/user",
+        "controller": "userCtrl"
+      }
+    ],
+    "resolve": {
+      "loadFiles": [
+        "/user/app/js/rev/controller.js"
+      ]
+    }
+  }
+]

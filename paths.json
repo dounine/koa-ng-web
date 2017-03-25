@@ -1,0 +1,15 @@
+{
+  "isPro":false,
+  "dev": [
+    {
+      "moduleName":"index",
+      "path": "http://localhost:8888"
+    },{
+      "moduleName":"user",
+      "path": "http://localhost:8888"
+    }
+  ],
+  "pro":[
+
+  ]
+}
