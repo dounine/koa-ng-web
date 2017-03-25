@@ -4,3 +4,4 @@ node_modules
 **/node_modules
 modules/static/common/libs/*
 modules/static/**/app/libs/*
+modules/static/**/app/**/rev
