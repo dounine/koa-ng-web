@@ -1,37 +1,17 @@
 <div class="n" style="width: 100%;float: left">
     <li class="n-item">
-        <a class="n-link active" href="">列表</a>
+        <a class="n-link active" ui-sref="index.user.#list">列表</a>
     </li>
     <li class="n-item">
-        <a class="n-link" href="#">增加</a>
+        <a class="n-link" ui-sref="index.user.#add">增加</a>
     </li>
     <li class="n-item">
-        <a class="n-link" href="#">删除</a>
+        <a class="n-link" ui-sref="index.user.#edit">修改</a>
     </li>
     <li class="n-item">
-        <a class="n-link disabled" href="#">冻结</a>
+        <a class="n-link" ui-sref="index.user.#del({uid:uid})">删除</a>
     </li>
 </div>
-<link rel="stylesheet" href="/user/app/sass/rev/login.css">
-<div style="float: left;width: 100%;">
-    <div class="g-box">
-        <div class="g-row">
-            <li class="g-col" id="123">数据1</li>
-            <li class="g-col" id="233">数据2</li>
-            <li class="g-col" id="344">数据3</li>
-            <li class="g-col" id="999">数据4</li>
-        </div>
-        <div class="g-row">
-            <li class="g-col" id="123">数据1</li>
-            <li class="g-col" id="233">数据2</li>
-            <li class="g-col" id="344">数据3</li>
-            <li class="g-col" id="999">数据4</li>
-        </div>
-        <div class="g-row">
-            <li class="g-col" id="123">数据1</li>
-            <li class="g-col" id="233">数据2</li>
-            <li class="g-col" id="344">数据3</li>
-            <li class="g-col" id="999">数据4</li>
-        </div>
-    </div>
+<div ui-view="content">
+
 </div>

@@ -8,7 +8,7 @@ define(['angular','service'], function(angular,config) {
         ]);
 
     app.controller('index',['$scope','$rootScope','config','$http','$location','navService',index]);
-    app.controller('funs',['$scope','$rootScope','config','$http','$location','navService',funs]);
+    app.controller('functions',['$scope','$rootScope','config','$http','$location','navService',functions]);
     app.controller('article',['$scope','$rootScope','config','$http','$location',article]);
 
     function index($scope, $rootScope,config,$http,$location,navService) {
@@ -19,7 +19,7 @@ define(['angular','service'], function(angular,config) {
         vm.navs = vm.navService.getNavs();
     }
 
-    function funs($scope, $rootScope,config,$http,$location,navService) {
+    function functions($scope, $rootScope,config,$http,$location,navService) {
         var vm = $scope;
         vm.navService = navService;
         vm.navService.removeNav(0);

@@ -16,7 +16,7 @@ define(['angular', 'controller'], function (angular) {
                         var state = {
                             "url": value.url,
                             // "parent": value.parent,
-                            // "abstract": value.abstract,
+                             "abstract": value.abstract,
                             "views": {}
                         };
                         angular.forEach(value.views, function (view) {
@@ -25,10 +25,10 @@ define(['angular', 'controller'], function (angular) {
                                 controller: view.controller
                             };
                         });
-                        if (value.resolve && value.resolve.loadFiles) {
+                        if (value.resolve && value.resolve.lazyLoad) {
                             state.resolve = {};
                             state.resolve.load = function ($ocLazyLoad) {
-                                return $ocLazyLoad.load(value.resolve.loadFiles);
+                                return $ocLazyLoad.load(value.resolve.lazyLoad);
                             };
                         }
                         $stateProviderRef.state(value.name, state);

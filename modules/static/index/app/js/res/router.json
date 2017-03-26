@@ -2,22 +2,21 @@
   {
     "name": "index",
     "url": "/index",
-    "parent": "",
+    "abstract":false,
     "views": [
       {
-        "name": "",
+        "name": "@",
         "templateUrl": "index/app/html/rev/nav-list.html",
         "controller": "index"
       },
       {
         "name": "article@index",
-        "templateUrl": "index/app/html/rev/nav.html",
-        "controller": "article"
+        "templateUrl": "index/app/html/rev/nav.html"
       },
       {
-        "name": "funs@index",
+        "name": "functions@index",
         "templateUrl": "index/app/html/rev/list.html",
-        "controller": "funs"
+        "controller": "functions"
       }
     ]
   }
