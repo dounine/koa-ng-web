@@ -17,7 +17,6 @@ define(['angular', 'controller'], function (angular) {
             //         $urlRouter.sync();
             //     });
             // });
-            $urlRouter.listen();
 
             $urlRouterProviderRef.otherwise("/index");
             // $urlRouterProviderRef.deferIntercept();
@@ -94,10 +93,38 @@ define(['angular', 'controller'], function (angular) {
     }
 
     app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', appConfig]);
+    // app.config(function ($provide) {
+    //     $provide.decorator('$state', function($delegate, $ocLazyLoad) {
+    //         var state = {};
+    //         // // angular对象还是有些实用的方法的，深拷贝对象算是一个
+    //         // // 这里做深拷贝不做浅拷贝是避免循环嵌套调用内存溢出
+    //         angular.copy($delegate, state);
+    //         $delegate.transitionTo = function (to) {
+    //             // 跳转的时候有两种情况，一种是传入self对象，另一种是直接把state的id传进来
+    //             if (to.self) {
+    //                 // 当to为对象时，读取self.url属性获取路径，因为路径命名遵循"模块/页面"的方式，所以可以轻松判读取模块名
+    //                 var mod = to.self.url.replace('main.', '').replace(/\/(.*)\/.*/, '$1');
+    //                 if (!mod || '/' === mod) {
+    //                     mod = 'home';
+    //                 }
+    //                 //模块加载完成后再调用默认的路由跳转函数
+    //                 $ocLazyLoad.load(mod).then(function (){
+    //                     state.transitionTo.apply(null, arguments);
+    //                 });
+    //             } else {
+    //                 var id = to.replace('main.', '').replace(/(([a-z]*)[A-Z]{1})?.*/, '$2');
+    //                 $ocLazyLoad.load(mnModule[id].name).then(function() {state.transitionTo.apply(null, arguments);});
+    //             }
+    //         }
+    //         return $delegate;
+    //     });
+    // })
 
     function appConfig($httpProvider, $stateProvider, $urlRouterProvider) {
         $stateProviderRef = $stateProvider;
         $urlRouterProviderRef = $urlRouterProvider;
+        // $urlRouterProvider.deferIntercept();
+
         $httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
         $httpProvider.defaults.transformRequest = function (data) {
             if (data === undefined) {
