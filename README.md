@@ -9,7 +9,6 @@ gulp
 ```
 在子项目执行两条命令[modules/static/**/]
 ```
-npm install
 gulp
 ```
 运行项目
