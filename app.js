@@ -31,9 +31,7 @@ app.use(function *(next){
     var ms = new Date - start;
     console.log('%s %s - %s', this.method, this.url, ms);
 });
-app.on('error', function(err){
-    log.error('server error', err);
-});
+
 app.listen(port, function () {
     console.log('koa server listening on port ' + port);
 });
