@@ -4,9 +4,44 @@ define(['angular', 'controller'], function (angular) {
     var $urlRouterProviderRef = null;
     var app = angular.module("app", ["app.controller.index", "angular-loading-bar", "oc.lazyLoad", "ui.router"]);
     app.run(['$cookies', '$rootScope', appRun]);
-    app.run(['$http', 'config',
-        function ($http, config) {
+    app.run(['$state','$http', 'config','$urlRouter',
+        function ($state,$http, config,$urlRouter,$urlRouterProvider) {
             $urlRouterProviderRef.otherwise("/index");
+            // $urlRouterProviderRef.deferIntercept();
+            // $http.get('/router/list').then(function (data) {
+            //
+            //     angular.forEach(data.data, function (value, key) {
+            //         var getExistingState = $state.get(value.name)
+            //         if(getExistingState !== null){
+            //             return;
+            //         }
+            //         var state = {
+            //             "url": value.url,
+            //             // "parent": value.parent,
+            //             "abstract": value.abstract,
+            //             "views": {}
+            //         };
+            //         angular.forEach(value.views, function (view) {
+            //             state.views[view.name] = {
+            //                 templateUrl: view.templateUrl,
+            //                 controller: view.controller
+            //             };
+            //         });
+            //         if (value.resolve && value.resolve.lazyLoad) {
+            //             state.resolve = {};
+            //             state.resolve.load = function ($ocLazyLoad) {
+            //                 return $ocLazyLoad.load(value.resolve.lazyLoad);
+            //             };
+            //         }
+            //
+            //         $stateProviderRef.state(value.name, state);
+            //
+            //     });
+            //
+            //     $urlRouter.listen();
+            //     $urlRouter.sync();
+            //
+            // })
             $.ajax({
                 type: 'get',
                 url: config.path + "/router/list",
@@ -33,8 +68,11 @@ define(['angular', 'controller'], function (angular) {
                         }
                         $stateProviderRef.state(value.name, state);
                     });
+
                 }
             });
+            // $urlRouter.sync();
+            // $urlRouter.listen();
         }]);
     function appRun($cookies, $rootScope) {
         $cookies.clouddisk_account = "102535481@qq.com";

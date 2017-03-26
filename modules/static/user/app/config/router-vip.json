@@ -4,25 +4,23 @@
     "url": "/user/vip",
     "views": [
       {
-        "name": "content@index.user",
-        "templateUrl": "/module/user/vip",
-        "controller": "userCtrl"
+        "name": "box@index.user",
+        "templateUrl": "/user/app/html/rev/vip/index.html",
+        "controller": "userVipCtrl"
       },
       {
         "name": "menu@index.user.vip",
-        "templateUrl": "/user/app/html/res/vip/menu.html",
-        "controller": "userCtrl"
+        "templateUrl": "/user/app/html/rev/vip/menu.html"
       },
       {
         "name": "content@index.user.vip",
-        "templateUrl": "/user/app/html/res/vip/list.html",
-        "controller": "userCtrl"
+        "templateUrl": "/user/app/html/rev/vip/list.html",
+        "controller": "userVipCtrl_list"
       }
     ],
     "resolve": {
       "lazyLoad": [
-        "/user/app/js/rev/controller.js",
-        "/user/app/sass/rev/login.css"
+        "/user/app/js/rev/vip/controller.js"
       ]
     }
   },
@@ -33,7 +31,7 @@
       {
         "name": "content@index.user.vip",
         "templateUrl": "/user/app/html/rev/vip/list.html",
-        "controller": "userCtrl_list"
+        "controller": "userVipCtrl_list"
       }
     ]
   },
@@ -44,7 +42,7 @@
       {
         "name": "content@index.user.vip",
         "templateUrl": "/user/app/html/rev/vip/add.html",
-        "controller": "userCtrl_add"
+        "controller": "userVipCtrl_add"
       }
     ]
   },
@@ -55,7 +53,7 @@
       {
         "name": "content@index.user.vip",
         "templateUrl": "/user/app/html/rev/vip/edit.html",
-        "controller": "userCtrl_edit"
+        "controller": "userVipCtrl_edit"
       }
     ]
   },
@@ -66,7 +64,7 @@
       {
         "name": "content@index.user.vip",
         "templateUrl": "/user/app/html/rev/vip/del.html",
-        "controller": "userCtrl_del"
+        "controller": "userVipCtrl_del"
       }
     ]
   }

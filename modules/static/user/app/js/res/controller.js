@@ -7,10 +7,16 @@ angular.module(
         }
     ]
 ).controller("userCtrl", ['$scope', '$state', 'userService', 'navService', function ($scope, $state, userService, navService) {
+    if(location.hash=='#!/index'){//默认选择一个功能
+        $state.go('index.user.vip');
+    }
+
     $scope.name = 'nihao';
     $scope.navService = navService;
     $scope.navService.removeNav(1)
     $scope.navService.addNav({name: '用户功能', last: true});
+
+
     $scope.$on("uidChange",
         function (event, msg) {
             $scope.uid = msg;

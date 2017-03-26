@@ -4,63 +4,47 @@ const sendfile = require('koa-sendfile');
 const service = require(path.resolve(__dirname, '..') + '/service/index.js');
 const moduleName = path.basename(path.resolve(__dirname, '..'));
 const paths = require(path.resolve('plugins/read-config.js'));
-const common = require(path.resolve('plugins/common.js'));
+const common = require(path.resolve('plugins/common.js'))();
 const fs = require('fs');
 
 var routers = [];
 
 module.exports = function (config) {
-    function isDirectory(dir) {
-        try {
-            const stats = fs.statSync(dir)
-            return stats.isDirectory()
-        } catch (err) {
-            return false
-        }
-    }
-
-    function fsExistsSync(path) {
-        try {
-            fs.accessSync(path, fs.F_OK);
-        } catch (e) {
-            return false;
-        }
-        return true;
-    }
 
     function getFilenames(dir) {
         var files = []
-        if (!isDirectory(dir)) throw new Error(dir + ' is not a directory!')
-        fs.readdirSync(dir).forEach((filename) => {
-            const fullPath = path.join(dir, filename, '/app/js/res/router.json');
-            console.info(fullPath);
-            if (/.json$/.test(fullPath)&&fsExistsSync(fullPath)) {
-                console.info('true');
-                files.push(fullPath)
+        if (!common.isDirectory(dir)) {
+            throw new Error(dir + ' is not a directory!')
+        }
+        fs.readdirSync(dir).forEach(function (filename) {
+            var _dir = path.join(dir, filename, '/app/config/');
+            if (isDirectory(_dir)) {
+                var _files = getFilenames(_dir);
+                for (var i in _files) {
+                    var file = _files[i];
+                    if (/.json$/.test(file) && common.fileExist(file)) {
+                        files.push(file)
+                    }
+                }
+            } else {
+                const fullPath = path.join(dir, filename);
+                if (/.json$/.test(fullPath) && common.fileExist(fullPath)) {
+                    files.push(fullPath)
+                }
             }
         });
         return files
     }
 
-    getFilenames(path.resolve(__dirname, '../../../static')).forEach((file) => {
+    getFilenames(path.resolve(__dirname, '../../../static')).forEach(function (file) {
         var rs = JSON.parse(fs.readFileSync(file));
-        rs.forEach(function (value, key) {
-            routers.push(value);
-        });
+        if (rs.length > 0) {
+            routers.push.apply(routers, rs);
+        }
     });
 
     router.get('/index', function *() {
-        var status = yield (sendfile(this, common().getHtmlPath(moduleName, 'index.html')));
-        if (!status) {
-            this.throw(404);
-        }
-    }).get('/module1/:name', function *() {
-        var status = yield (sendfile(this, path.resolve('modules/static/' + this.params.name + '/app/html/rev')+ '/index.html'));
-        if (!status) {
-            this.throw(404);
-        }
-    }).get('/module/:cname/:name', function *() {
-        var status = yield (sendfile(this, path.resolve('modules/static/' + this.params.cname + '/app/html/rev')+'/'+this.params.name + '/index.html'));
+        var status = yield (sendfile(this, common.getHtmlPath(moduleName, 'index.html')));
         if (!status) {
             this.throw(404);
         }
@@ -91,12 +75,13 @@ module.exports = function (config) {
         }
     }).get('/router/list', function *() {
         var ros = [];
-        getFilenames(path.resolve(__dirname, '../../../static')).forEach((file) => {
+        getFilenames(path.resolve(__dirname, '../../../static')).forEach(function (file) {
             var rs = JSON.parse(fs.readFileSync(file));
             rs.forEach(function (value, key) {
                 ros.push(value);
             });
-        });
+        })
+        ;
         this.body = ros;
     });
     ;

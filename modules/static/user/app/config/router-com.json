@@ -1,0 +1,71 @@
+[
+  {
+    "name": "index.user.com",
+    "url": "/user/com",
+    "views": [
+      {
+        "name": "box@index.user",
+        "templateUrl": "/user/app/html/rev/com/index.html",
+        "controller": "userComCtrl"
+      },
+      {
+        "name": "menu@index.user.com",
+        "templateUrl": "/user/app/html/rev/com/menu.html"
+      },
+      {
+        "name": "content@index.user.com",
+        "templateUrl": "/user/app/html/rev/com/list.html",
+        "controller": "userComCtrl_list"
+      }
+    ],
+    "resolve": {
+      "lazyLoad": [
+        "/user/app/js/rev/com/controller.js"
+      ]
+    }
+  },
+  {
+    "name": "index.user.com.#list",
+    "url": "/list",
+    "views": [
+      {
+        "name": "content@index.user.com",
+        "templateUrl": "/user/app/html/rev/com/list.html",
+        "controller": "userComCtrl_list"
+      }
+    ]
+  },
+  {
+    "name": "index.user.com.#add",
+    "url": "/add",
+    "views": [
+      {
+        "name": "content@index.user.com",
+        "templateUrl": "/user/app/html/rev/com/add.html",
+        "controller": "userComCtrl_add"
+      }
+    ]
+  },
+  {
+    "name": "index.user.com.#edit",
+    "url": "/edit",
+    "views": [
+      {
+        "name": "content@index.user.com",
+        "templateUrl": "/user/app/html/rev/com/edit.html",
+        "controller": "userComCtrl_edit"
+      }
+    ]
+  },
+  {
+    "name": "index.user.com.#del",
+    "url": "/del",
+    "views": [
+      {
+        "name": "content@index.user.com",
+        "templateUrl": "/user/app/html/rev/com/del.html",
+        "controller": "userComCtrl_del"
+      }
+    ]
+  }
+]

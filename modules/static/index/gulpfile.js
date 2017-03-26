@@ -66,7 +66,7 @@ gulp.task('copy-img', function () {
         .pipe(gulp.dest('app/img/rev/'));
 });
 gulp.task('copy-js', function () {
-    return gulp.src(['./app/js/res/**/*.js'])
+    return gulp.src(['./app/js/res/**/*.+(js|json)'])
         .pipe(gulp.dest('app/js/rev/'));
 });
 gulp.task('copy-html', function () {
@@ -212,7 +212,7 @@ gulp.task('bower', function() {
     return bower();
 });
 gulp.task('watch-js', function() {//排除的路径必需加!./开头
-    return gulp.watch(['./app/js/res/**/*.js'],['copy-js']);
+    return gulp.watch(['./app/js/res/**/*.*'],['copy-js']);
 });
 gulp.task('watch-css', function() {
     return gulp.watch(['./app/css/res/**/*.css'],['copy-css']);

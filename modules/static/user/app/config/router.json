@@ -5,7 +5,7 @@
     "views": [
       {
         "name": "functions@index",
-        "templateUrl": "/module1/user",
+        "templateUrl": "/user/app/html/res/index.html",
         "controller": "userCtrl"
       }
     ],
