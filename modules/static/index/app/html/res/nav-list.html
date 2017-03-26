@@ -1,6 +1,21 @@
-<div class="nav" ui-view="article">
-    导航数据加载中...
+<div class="row">
+    <div class="span12">
+        <ul class="breadcrumb">
+            <li>
+                <a ui-sref="index">主页</a> <span class="divider"></span>
+            </li>
+            <li ng-repeat="nav in navs" ng-class="{'nav.class':!nav.last}">
+                <a ng-hide="nav.last" ui-sref="index">{{nav.name}}</a> <span ng-hide="nav.last" class="divider"></span>
+                <font ng-hide="!nav.last">{{nav.name}}</font>
+            </li>
+        </ul>
+    </div>
 </div>
-<div class="funs" ui-view="funs">
-    功能数据加载中...
+<div class="row">
+    <div class="nav" ui-view="article">
+        导航数据加载中...
+    </div>
+    <div class="funs" ui-view="funs">
+        功能数据加载中...
+    </div>
 </div>

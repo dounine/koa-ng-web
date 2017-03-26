@@ -3,24 +3,22 @@ li{
 }
 div{
     &.nav{
-        background: #001f3f;
         width:10%;
         height: 100%;
         float: left;
-        li{
-            border-bottom: 1px solid white;
-        }
+        border-right:1px dashed #3d9970;
     }
     &.funs{
-        background: #2aabd2;
-        width:90%;
+        width:86%;
         height: 100%;
-        float: left;
-        li{
+        float: right;
+        li.item{
             width:100px;
+            text-align: center;
             height: 100px;
             float: left;
-            background: #01ff70;
+            border:1px solid #2b542c;
+            border-radius: 4px;
             margin: 4px;
         }
     }

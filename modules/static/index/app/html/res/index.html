@@ -2,16 +2,16 @@
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>feedback user</title>
-		<link rel="stylesheet" href="/index/app/libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/common/libs/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/common/libs/angular-loading-bar/build/loading-bar.min.css" type='text/css' media='all' >
 		<link rel="stylesheet" href="/index/app/sass/rev/login.css">
 		<link rel="shortcut icon" href="/index/app/img/rev/form/favicon.ico" />
 	</head>
-	<body ng-app="app" ctx="/">
-		<div ui-view></div>
-		<script src="/common/libs/requirejs/require.js"></script>
-		<script>
-			require(['/index/app/js/rev/main.js']);
-		</script>
+	<body ng-app="app">
+		<div class="container" ui-view>
+
+		</div>
+
+		<script src="/common/libs/requirejs/require.js" data-main="/index/app/js/rev/main"></script>
 	</body>
 </html>

@@ -7,17 +7,24 @@ define(['angular','service'], function(angular,config) {
             "app.service.index"
         ]);
 
-    app.controller('index',['$scope','$rootScope','config','$http','$location',index]);
-    app.controller('funs',['$scope','$rootScope','config','$http','$location',funs]);
+    app.controller('index',['$scope','$rootScope','config','$http','$location','navService',index]);
+    app.controller('funs',['$scope','$rootScope','config','$http','$location','navService',funs]);
     app.controller('article',['$scope','$rootScope','config','$http','$location',article]);
 
-    function index($scope, $rootScope,config,$http,$location) {
+    function index($scope, $rootScope,config,$http,$location,navService) {
         var vm = $scope;
+        vm.navService = navService;
+        vm.navService.removeNav(0);
+        vm.navService.addNav({name:'功能列表',last:true});
+        vm.navs = vm.navService.getNavs();
     }
 
-    function funs($scope, $rootScope,config,$http,$location) {
+    function funs($scope, $rootScope,config,$http,$location,navService) {
         var vm = $scope;
-
+        vm.navService = navService;
+        vm.navService.removeNav(0);
+        vm.navService.addNav({name:'功能列表',last:true});
+        vm.navs = vm.navService.getNavs();
         vm.list = function () {
             var data = {
                 name:'funName',

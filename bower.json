@@ -26,6 +26,7 @@
     "tether": "^1.4.0",
     "requirejs": "^2.3.3",
     "oclazyload": "^1.1.0",
-    "angular-growl": "^0.4.0"
+    "angular-growl": "^0.4.0",
+    "bootstrap": "4.0.0-alpha"
   }
 }

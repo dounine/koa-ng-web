@@ -1,27 +1,34 @@
-li{
-    list-style: none;
-}
-div{
-    &.nav{
-        background: #001f3f;
-        width:10%;
-        height: 100%;
-        float: left;
-        li{
-            border-bottom: 1px solid white;
-        }
+.n-item{
+    float: left;
+    margin:4px;
+    .disabled{
+        color: #39cccc;
     }
-    &.funs{
-        background: #2aabd2;
-        width:90%;
-        height: 100%;
+    .active {
+        color: #2ecc40;
+    }
+}
+.g-box{
+    width: 100%;
+    float: left;
+    .g-row{
+        width:100%;
         float: left;
-        li{
-            width:100px;
-            height: 100px;
+        background: #3d9970;
+        margin:1px 0;
+        &:nth-child(2){
+            background: #39cccc;
+        }
+        &:hover{
+            background: #ff4136;
+            cursor: pointer;
+        }
+        &.active{
+            background: #00b3ee;
+        }
+        .g-col{
             float: left;
-            background: #01ff70;
-            margin: 4px;
+            padding:0 10px;
         }
     }
 }
