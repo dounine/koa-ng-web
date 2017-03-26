@@ -1,17 +1,13 @@
-<div class="n" style="width: 100%;float: left">
-    <li class="n-item">
-        <a class="n-link active" ui-sref="index.user.#list">列表</a>
-    </li>
-    <li class="n-item">
-        <a class="n-link" ui-sref="index.user.#add">增加</a>
-    </li>
-    <li class="n-item">
-        <a class="n-link" ui-sref="index.user.#edit">修改</a>
-    </li>
-    <li class="n-item">
-        <a class="n-link" ui-sref="index.user.#del({uid:uid})">删除</a>
-    </li>
+<div style="float: left;widows: 20%;">
+    <li><a ui-sref="index.user.vip">VIP用户</a></li>
+    <li><a ui-sref="index.user.com">普通用户</a></li>
+    <li><a >子功能1</a></li>
+    <li><a >子功能1</a></li>
 </div>
-<div ui-view="content">
+<div ui-view="menu" style="width: 80%;float: right;">
+
+</div>
+
+<div ui-view="content" style="width: 80%;float: right;">
 
 </div>

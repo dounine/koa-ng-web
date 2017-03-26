@@ -1,17 +1,12 @@
 [
   {
     "name": "index.user",
-    "url": "/user",
+    "url": "",
     "views": [
       {
         "name": "functions@index",
-        "templateUrl": "/module/user",
+        "templateUrl": "/module1/user",
         "controller": "userCtrl"
-      },
-      {
-        "name": "content@index.user",
-        "templateUrl": "/user/app/html/rev/list.html",
-        "controller": "userCtrl_list"
       }
     ],
     "resolve": {
@@ -20,46 +15,5 @@
         "/user/app/sass/rev/login.css"
       ]
     }
-  },
-  {
-    "name": "index.user.#list",
-    "url": "/list",
-    "views": [
-      {
-        "name": "content@index.user",
-        "templateUrl": "/user/app/html/rev/list.html",
-        "controller": "userCtrl_list"
-      }
-    ]
-  },{
-    "name": "index.user.#add",
-    "url": "/add",
-    "views": [
-      {
-        "name": "content@index.user",
-        "templateUrl": "/user/app/html/rev/add.html",
-        "controller":"userCtrl_add"
-      }
-    ]
-  },{
-  "name": "index.user.#edit",
-  "url": "/edit",
-  "views": [
-    {
-      "name": "content@index.user",
-      "templateUrl": "/user/app/html/rev/edit.html",
-      "controller":"userCtrl_edit"
-    }
-  ]
-},{
-  "name": "index.user.#del",
-  "url": "/del?:uid",
-  "views": [
-    {
-      "name": "content@index.user",
-      "templateUrl": "/user/app/html/rev/del.html",
-      "controller":"userCtrl_del"
-    }
-  ]
-}
+  }
 ]

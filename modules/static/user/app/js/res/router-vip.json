@@ -1,0 +1,73 @@
+[
+  {
+    "name": "index.user.vip",
+    "url": "/user/vip",
+    "views": [
+      {
+        "name": "content@index.user",
+        "templateUrl": "/module/user/vip",
+        "controller": "userCtrl"
+      },
+      {
+        "name": "menu@index.user.vip",
+        "templateUrl": "/user/app/html/res/vip/menu.html",
+        "controller": "userCtrl"
+      },
+      {
+        "name": "content@index.user.vip",
+        "templateUrl": "/user/app/html/res/vip/list.html",
+        "controller": "userCtrl"
+      }
+    ],
+    "resolve": {
+      "lazyLoad": [
+        "/user/app/js/rev/controller.js",
+        "/user/app/sass/rev/login.css"
+      ]
+    }
+  },
+  {
+    "name": "index.user.vip.#list",
+    "url": "/list",
+    "views": [
+      {
+        "name": "content@index.user.vip",
+        "templateUrl": "/user/app/html/rev/vip/list.html",
+        "controller": "userCtrl_list"
+      }
+    ]
+  },
+  {
+    "name": "index.user.vip.#add",
+    "url": "/add",
+    "views": [
+      {
+        "name": "content@index.user.vip",
+        "templateUrl": "/user/app/html/rev/vip/add.html",
+        "controller": "userCtrl_add"
+      }
+    ]
+  },
+  {
+    "name": "index.user.vip.#edit",
+    "url": "/edit",
+    "views": [
+      {
+        "name": "content@index.user.vip",
+        "templateUrl": "/user/app/html/rev/vip/edit.html",
+        "controller": "userCtrl_edit"
+      }
+    ]
+  },
+  {
+    "name": "index.user.vip.#del",
+    "url": "/del",
+    "views": [
+      {
+        "name": "content@index.user.vip",
+        "templateUrl": "/user/app/html/rev/vip/del.html",
+        "controller": "userCtrl_del"
+      }
+    ]
+  }
+]

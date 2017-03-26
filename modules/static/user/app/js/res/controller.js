@@ -19,6 +19,7 @@ angular.module(
 }]).controller("userCtrl_list", ['$scope', function ($scope) {
     $scope.name = 'nihao';
     $scope.click = function (item) {
+        console.info("您点击了这行");
         $scope.uid = "123456789";
         $scope.$emit("uidChange", $scope.uid);
     }
@@ -28,5 +29,4 @@ angular.module(
     $scope.name = 'nihao';
 }]).controller("userCtrl_del", ['$scope', '$stateParams', function ($scope, $stateParams) {
     $scope.name = 'nihao';
-    console.info("要删除数据的ID为:"+$stateParams.uid);
 }]);

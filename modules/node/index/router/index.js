@@ -33,7 +33,9 @@ module.exports = function (config) {
         if (!isDirectory(dir)) throw new Error(dir + ' is not a directory!')
         fs.readdirSync(dir).forEach((filename) => {
             const fullPath = path.join(dir, filename, '/app/js/res/router.json');
-            if (fsExistsSync(fullPath)) {
+            console.info(fullPath);
+            if (/.json$/.test(fullPath)&&fsExistsSync(fullPath)) {
+                console.info('true');
                 files.push(fullPath)
             }
         });
@@ -52,8 +54,13 @@ module.exports = function (config) {
         if (!status) {
             this.throw(404);
         }
-    }).get('/module/:name', function *() {
-        var status = yield (sendfile(this, path.resolve('modules/static/' + this.params.name + '/app/html/rev') + '/index.html'));
+    }).get('/module1/:name', function *() {
+        var status = yield (sendfile(this, path.resolve('modules/static/' + this.params.name + '/app/html/rev')+ '/index.html'));
+        if (!status) {
+            this.throw(404);
+        }
+    }).get('/module/:cname/:name', function *() {
+        var status = yield (sendfile(this, path.resolve('modules/static/' + this.params.cname + '/app/html/rev')+'/'+this.params.name + '/index.html'));
         if (!status) {
             this.throw(404);
         }
