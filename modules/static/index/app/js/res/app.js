@@ -4,8 +4,21 @@ define(['angular', 'controller'], function (angular) {
     var $urlRouterProviderRef = null;
     var app = angular.module("app", ["app.controller.index", "angular-loading-bar", "oc.lazyLoad", "ui.router"]);
     app.run(['$cookies', '$rootScope', appRun]);
-    app.run(['$state','$http', 'config','$urlRouter',
-        function ($state,$http, config,$urlRouter,$urlRouterProvider) {
+    app.run(['$rootScope', '$state', '$http', 'config', '$urlRouter',
+        function ($rootScope, $state, $http, config, $urlRouter, $urlRouterProvider) {
+            // console.info($location)
+            // $rootScope.$on('$locationChangeSuccess', function () {
+            //     if(!$location.path()) $location.path('/');
+            //     var mod = $location.path().split('/')[1]||'home';
+            //     // 路由路径按照 "模块/页面" 的方式配置，有两个好处：
+            //     // 1. 避免不同模块的路径冲突
+            //     // 2. 可以通过路径判断模块
+            //     $ocLazyLoad.load(mod).then(function () {
+            //         $urlRouter.sync();
+            //     });
+            // });
+            $urlRouter.listen();
+
             $urlRouterProviderRef.otherwise("/index");
             // $urlRouterProviderRef.deferIntercept();
             // $http.get('/router/list').then(function (data) {
@@ -51,7 +64,7 @@ define(['angular', 'controller'], function (angular) {
                         var state = {
                             "url": value.url,
                             // "parent": value.parent,
-                             "abstract": value.abstract,
+                            "abstract": value.abstract,
                             "views": {}
                         };
                         angular.forEach(value.views, function (view) {
@@ -81,7 +94,6 @@ define(['angular', 'controller'], function (angular) {
     }
 
     app.config(['$httpProvider', '$stateProvider', '$urlRouterProvider', appConfig]);
-
 
     function appConfig($httpProvider, $stateProvider, $urlRouterProvider) {
         $stateProviderRef = $stateProvider;

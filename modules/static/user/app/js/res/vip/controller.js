@@ -1,6 +1,10 @@
 angular.module(
     "userVipModule",
-    []
+    [
+        {
+            files: ["/user/app/js/rev/loaded.js"]
+        }
+    ]
 ).controller("userVipCtrl", ['$scope', '$state', 'userService', 'navService', function ($scope, $state, userService, navService) {
 
 
